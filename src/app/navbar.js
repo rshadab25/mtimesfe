@@ -15,7 +15,7 @@ const Navbar = () => {
 		<nav>
 			<div className="navbar">
 				<Link href="/">
-					<span className="logo">NextWp</span>
+					<span className="logo">Mtimes24</span>
 				</Link>
 				<ul>
 					{NavLinks.map((link) => {
