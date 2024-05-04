@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 async function getPosts() {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`, { next: { revalidate: 600 }}
+		`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`, { cache: 'no-store' }
 	);
 	const posts = await response.json();
 	return posts;
