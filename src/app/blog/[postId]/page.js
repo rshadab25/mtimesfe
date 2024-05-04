@@ -2,7 +2,7 @@ export const dynamicParams = true;
 
 export async function generateStaticParams() {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`, { cache: 'no-store' }
+		`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`, { next: { revalidate: 600 }}
 	);
 	const posts = await response.json();
 
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 
 async function getSinglePost(postId) {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts/${postId}`, { cache: 'no-store' }
+		`${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts/${postId}`, { next: { revalidate: 600 }}
 	);
 	const post = await response.json();
 	return post;
